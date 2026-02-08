@@ -6,8 +6,6 @@
 
 [![Platform](https://img.shields.io/badge/Platform-Cortex--M3-blue)]()
 
-[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
-
 ## Overview
 
 The **Periodic Task Layer (PTL)** extends FreeRTOS with first-class support for periodic real-time tasks.
@@ -21,17 +19,19 @@ PTL adds native support for **periodicity**, **deadlines**, and **overrun handli
 
 The design prioritizes **minimal kernel intrusion** for easy portability to different FreeRTOS ports.
 
+---
+
 ## Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                      User Application                        │
-│   ┌──────────┐  ┌──────────┐  ┌──────────┐                 │
-│   │  Task A  │  │  Task B  │  │  Task C  │   (Job Bodies)  │
-│   └────┬─────┘  └────┬─────┘  └────┬─────┘                 │
+│                      User Application                       │
+│   ┌──────────┐  ┌──────────┐  ┌──────────┐                  │
+│   │  Task A  │  │  Task B  │  │  Task C  │   (Job Bodies)   │
+│   └────┬─────┘  └────┬─────┘  └────┬─────┘                  │
 ├────────┼─────────────┼─────────────┼────────────────────────┤
 │        └─────────────┼─────────────┘                        │
-│                      ▼                                       │
+│                      ▼                                      │
 │   ┌──────────────────────────────────────┐                  │
 │   │     PTL - Periodic Task Layer        │                  │
 │   │  ┌────────────┐  ┌─────────────────┐ │                  │
@@ -43,10 +43,13 @@ The design prioritizes **minimal kernel intrusion** for easy portability to diff
 │   │  └─────────────────────────────────┘ │                  │
 │   └──────────────────────────────────────┘                  │
 ├─────────────────────────────────────────────────────────────┤
-│                  FreeRTOS Kernel                             │
+│                  FreeRTOS Kernel                            │
 │         (Priority-based Preemptive Scheduling)              │
 └─────────────────────────────────────────────────────────────┘
 ```
+
+---
+
 ## Prerequisites
 -**ARM GCC Toolchain**: `arm-none-eabi-gcc`
 -**QEMU**: For Cortex-M3 emulation (`qemu-system-arm`)
@@ -82,11 +85,13 @@ makegdb_start
 
 The default `main.c` demonstrates:
 
-1.**Sensor task**: Normal periodic execution (10ms work, 100ms period)
+1. **Sensor task**: Normal periodic execution (10ms work, 100ms period)
 
-2.**ImageProc task**: Intentionally exceeds deadline → KILL policy terminates it
+2. **ImageProc task**: Intentionally exceeds deadline → KILL policy terminates it
 
-3.**Logger task**: Runs late → SKIP policy allows completion, skips next release
+3. **Logger task**: Runs late → SKIP policy allows completion, skips next release
+
+---
 
 ## Testing
 
@@ -159,13 +164,10 @@ group38/
 ---
 
 ## Authors
-
-**Riccardo Bartolini** | s362034@studenti.polito.it
-
-**Rocco Caliandro**    | s359509@studenti.polito.it
-
-**Gianmarco Fabbri**   | s361504@studenti.polito.it
-
-**Davide Rossi**       | s359504@studenti.polito.it
-
+| Name | PoliTo Email |
+|---|---|
+| **Riccardo Bartolini** | s362034@studenti.polito.it |
+| **Rocco Caliandro**  | s359509@studenti.polito.it |
+| **Gianmarco Fabbri** | s361504@studenti.polito.it |
+| **Davide Rossi** | s359504@studenti.polito.it |
 ### Group 38 - Real-Time Systems Project 2025/2026
