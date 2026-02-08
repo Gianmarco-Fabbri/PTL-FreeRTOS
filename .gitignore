@@ -1,0 +1,40 @@
+# --- OS System Files (Do not push these!) ---
+.DS_Store
+.DS_Store?
+._*
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# --- C/C++ Build Artifacts ---
+*.o
+*.obj
+*.ko
+*.elf
+*.bin
+*.hex
+*.out
+*.map
+*.d
+*.lst
+*.sym
+*.asm
+
+# --- Executables ---
+*.exe
+*.app
+
+# --- Build Directories ---
+# If you make a folder named "build" or "bin" it will be ignored
+build/
+bin/
+Debug/
+Release/
+
+# --- IDE & Editor Settings (Optional but recommended) ---
+.vscode/
+.idea/
+*.cproject
+*.project
+*.settings/
+*.su
