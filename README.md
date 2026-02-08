@@ -160,12 +160,12 @@ group38/
 
 ## Authors
 
-**Riccardo Bartolini**  	|       s362034@studenti.polito.it
+**Riccardo Bartolini** | s362034@studenti.polito.it
 
-**Rocco Caliandro**     	|       s359509@studenti.polito.it
+**Rocco Caliandro**    | s359509@studenti.polito.it
 
-**Gianmarco Fabbri**        |       s361504@studenti.polito.it
+**Gianmarco Fabbri**   | s361504@studenti.polito.it
 
-**Davide Rossi**            |       s359504@studenti.polito.it
+**Davide Rossi**       | s359504@studenti.polito.it
 
 ### Group 38 - Real-Time Systems Project 2025/2026
