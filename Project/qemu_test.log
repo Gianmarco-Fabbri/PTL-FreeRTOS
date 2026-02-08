@@ -1,0 +1,750 @@
+[PTL] Initializing 3 tasks...
+[PTL] Created: Fast1
+[PTL] Created: Fast2
+[PTL] Created: Check
+[PTL] Init complete
+[PTL] Starting dispatcher...
+[SCHEDULER] Creating Supervisor Task...
+[SCHEDULER] Calibrating System Timer...
+90106 loops/ms
+[SCHEDULER] System Calibrated.
+[SCHEDULER] Supervisor Running at Priority 8
+[PTL] Executing: Check
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+[PTL] Executing: Fast1
+[PTL] Executing: Fast2
+
+=== COMPLEX TEST: TRACE STRESS TEST ===
+
+===== PTL TRACE =====
+[  399 ms] IDLE       IDLE_START
+[  400 ms] IDLE       IDLE_END
+[  400 ms] IDLE       IDLE_START
+[  401 ms] IDLE       IDLE_END
+[  401 ms] Fast1      RELEASE
+[  401 ms] Fast2      RELEASE
+[  401 ms] Fast1      SWITCH_IN
+[  401 ms] Fast1      START
+[  401 ms] Fast1      COMPLETE
+[  401 ms] Fast1      SWITCH_OUT
+[  401 ms] Fast2      SWITCH_IN
+[  401 ms] Fast2      START
+[  401 ms] Fast2      COMPLETE
+[  401 ms] Fast2      SWITCH_OUT
+[  401 ms] IDLE       IDLE_START
+[  402 ms] IDLE       IDLE_END
+[  402 ms] IDLE       IDLE_START
+[  403 ms] IDLE       IDLE_END
+[  403 ms] IDLE       IDLE_START
+[  404 ms] IDLE       IDLE_END
+[  404 ms] IDLE       IDLE_START
+[  405 ms] IDLE       IDLE_END
+[  405 ms] IDLE       IDLE_START
+[  406 ms] IDLE       IDLE_END
+[  406 ms] IDLE       IDLE_START
+[  407 ms] IDLE       IDLE_END
+[  407 ms] IDLE       IDLE_START
+[  408 ms] IDLE       IDLE_END
+[  408 ms] IDLE       IDLE_START
+[  409 ms] IDLE       IDLE_END
+[  409 ms] IDLE       IDLE_START
+[  410 ms] IDLE       IDLE_END
+[  410 ms] IDLE       IDLE_START
+[  411 ms] IDLE       IDLE_END
+[  411 ms] Fast1      RELEASE
+[  411 ms] Fast2      RELEASE
+[  411 ms] Fast1      SWITCH_IN
+[  411 ms] Fast1      START
+[  411 ms] Fast1      COMPLETE
+[  411 ms] Fast1      SWITCH_OUT
+[  411 ms] Fast2      SWITCH_IN
+[  411 ms] Fast2      START
+[  411 ms] Fast2      COMPLETE
+[  411 ms] Fast2      SWITCH_OUT
+[  411 ms] IDLE       IDLE_START
+[  412 ms] IDLE       IDLE_END
+[  412 ms] IDLE       IDLE_START
+[  413 ms] IDLE       IDLE_END
+[  413 ms] IDLE       IDLE_START
+[  414 ms] IDLE       IDLE_END
+[  414 ms] IDLE       IDLE_START
+[  415 ms] IDLE       IDLE_END
+[  415 ms] IDLE       IDLE_START
+[  416 ms] IDLE       IDLE_END
+[  416 ms] IDLE       IDLE_START
+[  417 ms] IDLE       IDLE_END
+[  417 ms] IDLE       IDLE_START
+[  418 ms] IDLE       IDLE_END
+[  418 ms] IDLE       IDLE_START
+[  419 ms] IDLE       IDLE_END
+[  419 ms] IDLE       IDLE_START
+[  420 ms] IDLE       IDLE_END
+[  420 ms] IDLE       IDLE_START
+[  421 ms] IDLE       IDLE_END
+[  421 ms] Fast1      RELEASE
+[  421 ms] Fast2      RELEASE
+[  421 ms] Fast1      SWITCH_IN
+[  421 ms] Fast1      START
+[  421 ms] Fast1      COMPLETE
+[  421 ms] Fast1      SWITCH_OUT
+[  421 ms] Fast2      SWITCH_IN
+[  421 ms] Fast2      START
+[  421 ms] Fast2      COMPLETE
+[  421 ms] Fast2      SWITCH_OUT
+[  421 ms] IDLE       IDLE_START
+[  422 ms] IDLE       IDLE_END
+[  422 ms] IDLE       IDLE_START
+[  423 ms] IDLE       IDLE_END
+[  423 ms] IDLE       IDLE_START
+[  424 ms] IDLE       IDLE_END
+[  424 ms] IDLE       IDLE_START
+[  425 ms] IDLE       IDLE_END
+[  425 ms] IDLE       IDLE_START
+[  426 ms] IDLE       IDLE_END
+[  426 ms] IDLE       IDLE_START
+[  427 ms] IDLE       IDLE_END
+[  427 ms] IDLE       IDLE_START
+[  428 ms] IDLE       IDLE_END
+[  428 ms] IDLE       IDLE_START
+[  429 ms] IDLE       IDLE_END
+[  429 ms] IDLE       IDLE_START
+[  430 ms] IDLE       IDLE_END
+[  430 ms] IDLE       IDLE_START
+[  431 ms] IDLE       IDLE_END
+[  431 ms] Fast1      RELEASE
+[  431 ms] Fast2      RELEASE
+[  431 ms] Fast1      SWITCH_IN
+[  431 ms] Fast1      START
+[  431 ms] Fast1      COMPLETE
+[  431 ms] Fast1      SWITCH_OUT
+[  431 ms] Fast2      SWITCH_IN
+[  431 ms] Fast2      START
+[  431 ms] Fast2      COMPLETE
+[  431 ms] Fast2      SWITCH_OUT
+[  431 ms] IDLE       IDLE_START
+[  432 ms] IDLE       IDLE_END
+[  432 ms] IDLE       IDLE_START
+[  433 ms] IDLE       IDLE_END
+[  433 ms] IDLE       IDLE_START
+[  434 ms] IDLE       IDLE_END
+[  434 ms] IDLE       IDLE_START
+[  435 ms] IDLE       IDLE_END
+[  435 ms] IDLE       IDLE_START
+[  436 ms] IDLE       IDLE_END
+[  436 ms] IDLE       IDLE_START
+[  437 ms] IDLE       IDLE_END
+[  437 ms] IDLE       IDLE_START
+[  438 ms] IDLE       IDLE_END
+[  438 ms] IDLE       IDLE_START
+[  439 ms] IDLE       IDLE_END
+[  439 ms] IDLE       IDLE_START
+[  440 ms] IDLE       IDLE_END
+[  440 ms] IDLE       IDLE_START
+[  441 ms] IDLE       IDLE_END
+[  441 ms] Fast1      RELEASE
+[  441 ms] Fast2      RELEASE
+[  441 ms] Fast1      SWITCH_IN
+[  441 ms] Fast1      START
+[  441 ms] Fast1      COMPLETE
+[  441 ms] Fast1      SWITCH_OUT
+[  441 ms] Fast2      SWITCH_IN
+[  441 ms] Fast2      START
+[  441 ms] Fast2      COMPLETE
+[  441 ms] Fast2      SWITCH_OUT
+[  441 ms] IDLE       IDLE_START
+[  442 ms] IDLE       IDLE_END
+[  442 ms] IDLE       IDLE_START
+[  443 ms] IDLE       IDLE_END
+[  443 ms] IDLE       IDLE_START
+[  444 ms] IDLE       IDLE_END
+[  444 ms] IDLE       IDLE_START
+[  445 ms] IDLE       IDLE_END
+[  445 ms] IDLE       IDLE_START
+[  446 ms] IDLE       IDLE_END
+[  446 ms] IDLE       IDLE_START
+[  447 ms] IDLE       IDLE_END
+[  447 ms] IDLE       IDLE_START
+[  448 ms] IDLE       IDLE_END
+[  448 ms] IDLE       IDLE_START
+[  449 ms] IDLE       IDLE_END
+[  449 ms] IDLE       IDLE_START
+[  450 ms] IDLE       IDLE_END
+[  450 ms] IDLE       IDLE_START
+[  451 ms] IDLE       IDLE_END
+[  451 ms] Fast1      RELEASE
+[  451 ms] Fast2      RELEASE
+[  451 ms] Fast1      SWITCH_IN
+[  451 ms] Fast1      START
+[  451 ms] Fast1      COMPLETE
+[  451 ms] Fast1      SWITCH_OUT
+[  451 ms] Fast2      SWITCH_IN
+[  451 ms] Fast2      START
+[  451 ms] Fast2      COMPLETE
+[  451 ms] Fast2      SWITCH_OUT
+[  451 ms] IDLE       IDLE_START
+[  452 ms] IDLE       IDLE_END
+[  452 ms] IDLE       IDLE_START
+[  453 ms] IDLE       IDLE_END
+[  453 ms] IDLE       IDLE_START
+[  454 ms] IDLE       IDLE_END
+[  454 ms] IDLE       IDLE_START
+[  455 ms] IDLE       IDLE_END
+[  455 ms] IDLE       IDLE_START
+[  456 ms] IDLE       IDLE_END
+[  456 ms] IDLE       IDLE_START
+[  457 ms] IDLE       IDLE_END
+[  457 ms] IDLE       IDLE_START
+[  458 ms] IDLE       IDLE_END
+[  458 ms] IDLE       IDLE_START
+[  459 ms] IDLE       IDLE_END
+[  459 ms] IDLE       IDLE_START
+[  460 ms] IDLE       IDLE_END
+[  460 ms] IDLE       IDLE_START
+[  461 ms] IDLE       IDLE_END
+[  461 ms] Fast1      RELEASE
+[  461 ms] Fast2      RELEASE
+[  461 ms] Fast1      SWITCH_IN
+[  461 ms] Fast1      START
+[  461 ms] Fast1      COMPLETE
+[  461 ms] Fast1      SWITCH_OUT
+[  461 ms] Fast2      SWITCH_IN
+[  461 ms] Fast2      START
+[  461 ms] Fast2      COMPLETE
+[  461 ms] Fast2      SWITCH_OUT
+[  461 ms] IDLE       IDLE_START
+[  462 ms] IDLE       IDLE_END
+[  462 ms] IDLE       IDLE_START
+[  463 ms] IDLE       IDLE_END
+[  463 ms] IDLE       IDLE_START
+[  464 ms] IDLE       IDLE_END
+[  464 ms] IDLE       IDLE_START
+[  465 ms] IDLE       IDLE_END
+[  465 ms] IDLE       IDLE_START
+[  466 ms] IDLE       IDLE_END
+[  466 ms] IDLE       IDLE_START
+[  467 ms] IDLE       IDLE_END
+[  467 ms] IDLE       IDLE_START
+[  468 ms] IDLE       IDLE_END
+[  468 ms] IDLE       IDLE_START
+[  469 ms] IDLE       IDLE_END
+[  469 ms] IDLE       IDLE_START
+[  470 ms] IDLE       IDLE_END
+[  470 ms] IDLE       IDLE_START
+[  471 ms] IDLE       IDLE_END
+[  471 ms] Fast1      RELEASE
+[  471 ms] Fast2      RELEASE
+[  471 ms] Fast1      SWITCH_IN
+[  471 ms] Fast1      START
+[  471 ms] Fast1      COMPLETE
+[  471 ms] Fast1      SWITCH_OUT
+[  471 ms] Fast2      SWITCH_IN
+[  471 ms] Fast2      START
+[  471 ms] Fast2      COMPLETE
+[  471 ms] Fast2      SWITCH_OUT
+[  471 ms] IDLE       IDLE_START
+[  472 ms] IDLE       IDLE_END
+[  472 ms] IDLE       IDLE_START
+[  473 ms] IDLE       IDLE_END
+[  473 ms] IDLE       IDLE_START
+[  474 ms] IDLE       IDLE_END
+[  474 ms] IDLE       IDLE_START
+[  475 ms] IDLE       IDLE_END
+[  475 ms] IDLE       IDLE_START
+[  476 ms] IDLE       IDLE_END
+[  476 ms] IDLE       IDLE_START
+[  477 ms] IDLE       IDLE_END
+[  477 ms] IDLE       IDLE_START
+[  478 ms] IDLE       IDLE_END
+[  478 ms] IDLE       IDLE_START
+[  479 ms] IDLE       IDLE_END
+[  479 ms] IDLE       IDLE_START
+[  480 ms] IDLE       IDLE_END
+[  480 ms] IDLE       IDLE_START
+[  481 ms] IDLE       IDLE_END
+[  481 ms] Fast1      RELEASE
+[  481 ms] Fast2      RELEASE
+[  481 ms] Fast1      SWITCH_IN
+[  481 ms] Fast1      START
+[  481 ms] Fast1      COMPLETE
+[  481 ms] Fast1      SWITCH_OUT
+[  481 ms] Fast2      SWITCH_IN
+[  481 ms] Fast2      START
+[  481 ms] Fast2      COMPLETE
+[  481 ms] Fast2      SWITCH_OUT
+[  481 ms] IDLE       IDLE_START
+[  482 ms] IDLE       IDLE_END
+[  482 ms] IDLE       IDLE_START
+[  483 ms] IDLE       IDLE_END
+[  483 ms] IDLE       IDLE_START
+[  484 ms] IDLE       IDLE_END
+[  484 ms] IDLE       IDLE_START
+[  485 ms] IDLE       IDLE_END
+[  485 ms] IDLE       IDLE_START
+[  486 ms] IDLE       IDLE_END
+[  486 ms] IDLE       IDLE_START
+[  487 ms] IDLE       IDLE_END
+[  487 ms] IDLE       IDLE_START
+[  488 ms] IDLE       IDLE_END
+[  488 ms] IDLE       IDLE_START
+[  489 ms] IDLE       IDLE_END
+[  489 ms] IDLE       IDLE_START
+[  490 ms] IDLE       IDLE_END
+[  490 ms] IDLE       IDLE_START
+[  491 ms] IDLE       IDLE_END
+[  491 ms] Fast1      RELEASE
+[  491 ms] Fast2      RELEASE
+[  491 ms] Fast1      SWITCH_IN
+[  491 ms] Fast1      START
+[  491 ms] Fast1      COMPLETE
+[  491 ms] Fast1      SWITCH_OUT
+[  491 ms] Fast2      SWITCH_IN
+[  491 ms] Fast2      START
+[  491 ms] Fast2      COMPLETE
+[  491 ms] Fast2      SWITCH_OUT
+[  491 ms] IDLE       IDLE_START
+[  492 ms] IDLE       IDLE_END
+[  492 ms] IDLE       IDLE_START
+[  493 ms] IDLE       IDLE_END
+[  493 ms] IDLE       IDLE_START
+[  494 ms] IDLE       IDLE_END
+[  494 ms] IDLE       IDLE_START
+[  495 ms] IDLE       IDLE_END
+[  495 ms] IDLE       IDLE_START
+[  496 ms] IDLE       IDLE_END
+[  496 ms] IDLE       IDLE_START
+[  497 ms] IDLE       IDLE_END
+[  497 ms] IDLE       IDLE_START
+[  498 ms] IDLE       IDLE_END
+[  498 ms] IDLE       IDLE_START
+[  499 ms] IDLE       IDLE_END
+[  499 ms] IDLE       IDLE_START
+[  500 ms] IDLE       IDLE_END
+[  500 ms] IDLE       IDLE_START
+[  501 ms] IDLE       IDLE_END
+[  501 ms] Fast1      RELEASE
+[  501 ms] Fast2      RELEASE
+[  501 ms] Fast1      SWITCH_IN
+[  501 ms] Fast1      START
+[  501 ms] Fast1      COMPLETE
+[  501 ms] Fast1      SWITCH_OUT
+[  501 ms] Fast2      SWITCH_IN
+[  501 ms] Fast2      START
+[  501 ms] Fast2      COMPLETE
+[  501 ms] Fast2      SWITCH_OUT
+[  501 ms] IDLE       IDLE_START
+[  502 ms] IDLE       IDLE_END
+[  502 ms] IDLE       IDLE_START
+[  503 ms] IDLE       IDLE_END
+[  503 ms] IDLE       IDLE_START
+[  504 ms] IDLE       IDLE_END
+[  504 ms] IDLE       IDLE_START
+[  505 ms] IDLE       IDLE_END
+[  505 ms] IDLE       IDLE_START
+[  506 ms] IDLE       IDLE_END
+[  506 ms] IDLE       IDLE_START
+[  507 ms] IDLE       IDLE_END
+[  507 ms] IDLE       IDLE_START
+[  508 ms] IDLE       IDLE_END
+[  508 ms] IDLE       IDLE_START
+[  509 ms] IDLE       IDLE_END
+[  509 ms] IDLE       IDLE_START
+[  510 ms] IDLE       IDLE_END
+[  510 ms] IDLE       IDLE_START
+[  511 ms] IDLE       IDLE_END
+[  511 ms] Fast1      RELEASE
+[  511 ms] Fast2      RELEASE
+[  511 ms] Fast1      SWITCH_IN
+[  511 ms] Fast1      START
+[  511 ms] Fast1      COMPLETE
+[  511 ms] Fast1      SWITCH_OUT
+[  511 ms] Fast2      SWITCH_IN
+[  511 ms] Fast2      START
+[  512 ms] Fast2      SWITCH_OUT
+[  512 ms] Fast2      SWITCH_IN
+[  512 ms] Fast2      COMPLETE
+[  512 ms] Fast2      SWITCH_OUT
+[  512 ms] IDLE       IDLE_START
+[  513 ms] IDLE       IDLE_END
+[  513 ms] IDLE       IDLE_START
+[  514 ms] IDLE       IDLE_END
+[  514 ms] IDLE       IDLE_START
+[  515 ms] IDLE       IDLE_END
+[  515 ms] IDLE       IDLE_START
+[  516 ms] IDLE       IDLE_END
+[  516 ms] IDLE       IDLE_START
+[  517 ms] IDLE       IDLE_END
+[  517 ms] IDLE       IDLE_START
+[  518 ms] IDLE       IDLE_END
+[  518 ms] IDLE       IDLE_START
+[  519 ms] IDLE       IDLE_END
+[  519 ms] IDLE       IDLE_START
+[  520 ms] IDLE       IDLE_END
+[  520 ms] IDLE       IDLE_START
+[  521 ms] IDLE       IDLE_END
+[  521 ms] Fast1      RELEASE
+[  521 ms] Fast2      RELEASE
+[  521 ms] Fast1      SWITCH_IN
+[  521 ms] Fast1      START
+[  521 ms] Fast1      COMPLETE
+[  521 ms] Fast1      SWITCH_OUT
+[  521 ms] Fast2      SWITCH_IN
+[  521 ms] Fast2      START
+[  521 ms] Fast2      COMPLETE
+[  521 ms] Fast2      SWITCH_OUT
+[  521 ms] IDLE       IDLE_START
+[  522 ms] IDLE       IDLE_END
+[  522 ms] IDLE       IDLE_START
+[  523 ms] IDLE       IDLE_END
+[  523 ms] IDLE       IDLE_START
+[  524 ms] IDLE       IDLE_END
+[  524 ms] IDLE       IDLE_START
+[  525 ms] IDLE       IDLE_END
+[  525 ms] IDLE       IDLE_START
+[  526 ms] IDLE       IDLE_END
+[  526 ms] IDLE       IDLE_START
+[  527 ms] IDLE       IDLE_END
+[  527 ms] IDLE       IDLE_START
+[  528 ms] IDLE       IDLE_END
+[  528 ms] IDLE       IDLE_START
+[  529 ms] IDLE       IDLE_END
+[  529 ms] IDLE       IDLE_START
+[  530 ms] IDLE       IDLE_END
+[  530 ms] IDLE       IDLE_START
+[  531 ms] IDLE       IDLE_END
+[  531 ms] Fast1      RELEASE
+[  531 ms] Fast2      RELEASE
+[  531 ms] Fast1      SWITCH_IN
+[  531 ms] Fast1      START
+[  531 ms] Fast1      COMPLETE
+[  531 ms] Fast1      SWITCH_OUT
+[  531 ms] Fast2      SWITCH_IN
+[  531 ms] Fast2      START
+[  531 ms] Fast2      COMPLETE
+[  531 ms] Fast2      SWITCH_OUT
+[  531 ms] IDLE       IDLE_START
+[  532 ms] IDLE       IDLE_END
+[  532 ms] IDLE       IDLE_START
+[  533 ms] IDLE       IDLE_END
+[  533 ms] IDLE       IDLE_START
+[  534 ms] IDLE       IDLE_END
+[  534 ms] IDLE       IDLE_START
+[  535 ms] IDLE       IDLE_END
+[  535 ms] IDLE       IDLE_START
+[  536 ms] IDLE       IDLE_END
+[  536 ms] IDLE       IDLE_START
+[  537 ms] IDLE       IDLE_END
+[  537 ms] IDLE       IDLE_START
+[  538 ms] IDLE       IDLE_END
+[  538 ms] IDLE       IDLE_START
+[  539 ms] IDLE       IDLE_END
+[  539 ms] IDLE       IDLE_START
+[  540 ms] IDLE       IDLE_END
+[  540 ms] IDLE       IDLE_START
+[  541 ms] IDLE       IDLE_END
+[  541 ms] Fast1      RELEASE
+[  541 ms] Fast2      RELEASE
+[  541 ms] Fast1      SWITCH_IN
+[  541 ms] Fast1      START
+[  541 ms] Fast1      COMPLETE
+[  541 ms] Fast1      SWITCH_OUT
+[  541 ms] Fast2      SWITCH_IN
+[  541 ms] Fast2      START
+[  541 ms] Fast2      COMPLETE
+[  541 ms] Fast2      SWITCH_OUT
+[  541 ms] IDLE       IDLE_START
+[  542 ms] IDLE       IDLE_END
+[  542 ms] IDLE       IDLE_START
+[  543 ms] IDLE       IDLE_END
+[  543 ms] IDLE       IDLE_START
+[  544 ms] IDLE       IDLE_END
+[  544 ms] IDLE       IDLE_START
+[  545 ms] IDLE       IDLE_END
+[  545 ms] IDLE       IDLE_START
+[  546 ms] IDLE       IDLE_END
+[  546 ms] IDLE       IDLE_START
+[  547 ms] IDLE       IDLE_END
+[  547 ms] IDLE       IDLE_START
+[  548 ms] IDLE       IDLE_END
+[  548 ms] IDLE       IDLE_START
+[  549 ms] IDLE       IDLE_END
+[  549 ms] IDLE       IDLE_START
+[  550 ms] IDLE       IDLE_END
+[  550 ms] IDLE       IDLE_START
+[  551 ms] IDLE       IDLE_END
+[  551 ms] Fast1      RELEASE
+[  551 ms] Fast2      RELEASE
+[  551 ms] Fast1      SWITCH_IN
+[  551 ms] Fast1      START
+[  551 ms] Fast1      COMPLETE
+[  551 ms] Fast1      SWITCH_OUT
+[  551 ms] Fast2      SWITCH_IN
+[  551 ms] Fast2      START
+[  551 ms] Fast2      COMPLETE
+[  551 ms] Fast2      SWITCH_OUT
+[  551 ms] IDLE       IDLE_START
+[  552 ms] IDLE       IDLE_END
+[  552 ms] IDLE       IDLE_START
+[  553 ms] IDLE       IDLE_END
+[  553 ms] IDLE       IDLE_START
+[  554 ms] IDLE       IDLE_END
+[  554 ms] IDLE       IDLE_START
+[  555 ms] IDLE       IDLE_END
+[  555 ms] IDLE       IDLE_START
+[  556 ms] IDLE       IDLE_END
+[  556 ms] IDLE       IDLE_START
+[  557 ms] IDLE       IDLE_END
+[  557 ms] IDLE       IDLE_START
+[  558 ms] IDLE       IDLE_END
+[  558 ms] IDLE       IDLE_START
+[  559 ms] IDLE       IDLE_END
+[  559 ms] IDLE       IDLE_START
+[  560 ms] IDLE       IDLE_END
+[  560 ms] IDLE       IDLE_START
+[  561 ms] IDLE       IDLE_END
+[  561 ms] Fast1      RELEASE
+[  561 ms] Fast2      RELEASE
+[  561 ms] Fast1      SWITCH_IN
+[  561 ms] Fast1      START
+[  561 ms] Fast1      COMPLETE
+[  561 ms] Fast1      SWITCH_OUT
+[  561 ms] Fast2      SWITCH_IN
+[  561 ms] Fast2      START
+[  561 ms] Fast2      COMPLETE
+[  561 ms] Fast2      SWITCH_OUT
+[  561 ms] IDLE       IDLE_START
+[  562 ms] IDLE       IDLE_END
+[  562 ms] IDLE       IDLE_START
+[  563 ms] IDLE       IDLE_END
+[  563 ms] IDLE       IDLE_START
+[  564 ms] IDLE       IDLE_END
+[  564 ms] IDLE       IDLE_START
+[  565 ms] IDLE       IDLE_END
+[  565 ms] IDLE       IDLE_START
+[  566 ms] IDLE       IDLE_END
+[  566 ms] IDLE       IDLE_START
+[  567 ms] IDLE       IDLE_END
+[  567 ms] IDLE       IDLE_START
+[  568 ms] IDLE       IDLE_END
+[  568 ms] IDLE       IDLE_START
+[  569 ms] IDLE       IDLE_END
+[  569 ms] IDLE       IDLE_START
+[  570 ms] IDLE       IDLE_END
+[  570 ms] IDLE       IDLE_START
+[  571 ms] IDLE       IDLE_END
+[  571 ms] Fast1      RELEASE
+[  571 ms] Fast2      RELEASE
+[  571 ms] Fast1      SWITCH_IN
+[  571 ms] Fast1      START
+[  571 ms] Fast1      COMPLETE
+[  571 ms] Fast1      SWITCH_OUT
+[  571 ms] Fast2      SWITCH_IN
+[  571 ms] Fast2      START
+[  571 ms] Fast2      COMPLETE
+[  571 ms] Fast2      SWITCH_OUT
+[  571 ms] IDLE       IDLE_START
+[  572 ms] IDLE       IDLE_END
+[  572 ms] IDLE       IDLE_START
+[  573 ms] IDLE       IDLE_END
+[  573 ms] IDLE       IDLE_START
+[  574 ms] IDLE       IDLE_END
+[  574 ms] IDLE       IDLE_START
+[  575 ms] IDLE       IDLE_END
+[  575 ms] IDLE       IDLE_START
+[  576 ms] IDLE       IDLE_END
+[  576 ms] IDLE       IDLE_START
+[  577 ms] IDLE       IDLE_END
+[  577 ms] IDLE       IDLE_START
+[  578 ms] IDLE       IDLE_END
+[  578 ms] IDLE       IDLE_START
+[  579 ms] IDLE       IDLE_END
+[  579 ms] IDLE       IDLE_START
+[  580 ms] IDLE       IDLE_END
+[  580 ms] IDLE       IDLE_START
+[  581 ms] IDLE       IDLE_END
+[  581 ms] Fast1      RELEASE
+[  581 ms] Fast2      RELEASE
+[  581 ms] Fast1      SWITCH_IN
+[  581 ms] Fast1      START
+[  581 ms] Fast1      COMPLETE
+[  581 ms] Fast1      SWITCH_OUT
+[  581 ms] Fast2      SWITCH_IN
+[  581 ms] Fast2      START
+[  581 ms] Fast2      COMPLETE
+[  581 ms] Fast2      SWITCH_OUT
+[  581 ms] IDLE       IDLE_START
+[  582 ms] IDLE       IDLE_END
+[  582 ms] IDLE       IDLE_START
+[  583 ms] IDLE       IDLE_END
+[  583 ms] IDLE       IDLE_START
+[  584 ms] IDLE       IDLE_END
+[  584 ms] IDLE       IDLE_START
+[  585 ms] IDLE       IDLE_END
+[  585 ms] IDLE       IDLE_START
+[  586 ms] IDLE       IDLE_END
+[  586 ms] IDLE       IDLE_START
+[  587 ms] IDLE       IDLE_END
+[  587 ms] IDLE       IDLE_START
+[  588 ms] IDLE       IDLE_END
+[  588 ms] IDLE       IDLE_START
+[  589 ms] IDLE       IDLE_END
+[  589 ms] IDLE       IDLE_START
+[  590 ms] IDLE       IDLE_END
+[  590 ms] IDLE       IDLE_START
+[  591 ms] IDLE       IDLE_END
+[  591 ms] Fast1      RELEASE
+[  591 ms] Fast2      RELEASE
+[  591 ms] Fast1      SWITCH_IN
+[  591 ms] Fast1      START
+[  591 ms] Fast1      COMPLETE
+[  591 ms] Fast1      SWITCH_OUT
+[  591 ms] Fast2      SWITCH_IN
+[  591 ms] Fast2      START
+[  591 ms] Fast2      COMPLETE
+[  591 ms] Fast2      SWITCH_OUT
+[  591 ms] IDLE       IDLE_START
+[  592 ms] IDLE       IDLE_END
+[  592 ms] IDLE       IDLE_START
+[  593 ms] IDLE       IDLE_END
+[  593 ms] IDLE       IDLE_START
+[  594 ms] IDLE       IDLE_END
+[  594 ms] IDLE       IDLE_START
+[  595 ms] IDLE       IDLE_END
+[  595 ms] IDLE       IDLE_START
+[  596 ms] IDLE       IDLE_END
+[  596 ms] IDLE       IDLE_START
+[  597 ms] IDLE       IDLE_END
+[  597 ms] IDLE       IDLE_START
+[  598 ms] IDLE       IDLE_END
+[  598 ms] IDLE       IDLE_START
+[  599 ms] IDLE       IDLE_END
+[  599 ms] IDLE       IDLE_START
+[  600 ms] IDLE       IDLE_END
+[  600 ms] IDLE       IDLE_START
+[  601 ms] IDLE       IDLE_END
+[  601 ms] Fast1      RELEASE
+[  601 ms] Fast2      RELEASE
+[  601 ms] Fast1      SWITCH_IN
+[  601 ms] Fast1      START
+[  601 ms] Fast1      COMPLETE
+[  601 ms] Fast1      SWITCH_OUT
+[  601 ms] Fast2      SWITCH_IN
+[  601 ms] Fast2      START
+[  601 ms] Fast2      COMPLETE
+[  601 ms] Fast2      SWITCH_OUT
+[  601 ms] IDLE       IDLE_START
+[  602 ms] IDLE       IDLE_END
+[  602 ms] Check      SWITCH_IN
+======================================
+
+====== PTL STATISTICS ======
+Total Releases:     42
+Total Completions:  38
+Deadline Misses:    0
+Overruns:           0
+Total Time:         625 ms
+Idle Time:          500 ms
+CPU Utilization:    20.00%
+System Overhead:    N/A (low CPU load)
+============================
+
+[PASS] Trace stress test: 42 releases, 38 completions.
+qemu-system-arm: terminating on signal 15 from pid 50795 (<unknown process>)

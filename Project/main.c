@@ -1,153 +1,189 @@
 /*
- * ======================================================================================
- * PTL (Periodic Task Language) - DEMONSTRATION MAIN
- * Group 38 - Real-Time Systems Project
- * ======================================================================================
+ * FreeRTOS V202212.00
+ * Copyright (C) 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
- * DESCRIPTION:
- * This file demonstrates the capabilities of the PTL Scheduler.
- * It defines three tasks with different behaviors to showcase:
- * 1. Normal Periodic Execution
- * 2. Deadline Enforcement (KILL Policy)
- * 3. Overrun Handling (SKIP Policy)
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to
+ * deal in the Software without restriction, including without limitation the
+ * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+ * sell copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  *
- * HOW TO USE:
- * 1. Compile: "make cleanobj all"
- * 2. Run: "make qemu_start" (or "make qemu_debug")
- * 3. Observe: UART Output showing task start/end and supervisor interventions.
- * ======================================================================================
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ *
+ * https://www.FreeRTOS.org
+ * https://github.com/FreeRTOS
+ *
  */
 
-#include "ptl.h"       /* PTL Core API */
-#include "uart.h"      /* UART Driver for output */
-#include "burner.h"    /* CPU Burner for simulating workload */
-#include <string.h>    /* For strcmp if needed */
-
-/* * --------------------------------------------------------------------------------------
- * SECTION 1: JOB FUNCTIONS (The "Work" code)
- * --------------------------------------------------------------------------------------
- * NOTE FOR PROFESSOR: 
- * These functions simulate real tasks. Instead of 'vTaskDelay', we use 'Burn(ms)'
- * to consume actual CPU cycles, forcing the scheduler to manage preemption and
- * overruns realistically.
+/**
+ * @file main.c
+ * @brief PTL (Periodic Task Layer) Demonstration Application.
+ *
+ * This application demonstrates the capabilities of the PTL Scheduler by
+ * defining three periodic tasks with different behaviors and overrun policies.
+ *
+ * @author Member 3 (Group 38)
  */
 
-/* * Job 1: "Sensor_Read"
- * Behavior: Runs quickly and finishes well before its deadline.
- * Goal: Show standard periodic behavior.
+/*-----------------------------------------------------------*/
+/* INCLUDES                                                   */
+/*-----------------------------------------------------------*/
+
+#include "burner.h"
+#include "ptl.h"
+#include "uart.h"
+#include <string.h>
+
+/*-----------------------------------------------------------*/
+/* PRIVATE DEFINITIONS                                        */
+/*-----------------------------------------------------------*/
+
+/** @brief Task stack size. */
+#define MAIN_TASK_STACK_SIZE (256)
+
+/*-----------------------------------------------------------*/
+/* PRIVATE FUNCTION PROTOTYPES                                */
+/*-----------------------------------------------------------*/
+
+void vJob_Sensor(void *pvParameters);
+void vJob_ImageProc(void *pvParameters);
+void vJob_Logger(void *pvParameters);
+
+/*-----------------------------------------------------------*/
+/* PRIVATE DATA                                               */
+/*-----------------------------------------------------------*/
+
+/**
+ * @brief Task Configuration Array.
+ *
+ * Defines three tasks:
+ * 1. Sensor: Normal periodic execution.
+ * 2. ImgProc: Intentionally fails deadline (KILL policy).
+ * 3. Logger: Runs late but finishes (SKIP policy).
  */
-void Job_Sensor(void *pvParameters) {
-    (void)pvParameters;
-    
-    UART_printf("[SENSOR] Reading data... (10ms work)\n");
-    Burn(10); 
-    UART_printf("[SENSOR] Done.\n");
-}
+static const PTL_TaskConfig_t xTaskConfig[] = {
+    /* Name, Period, Deadline, Priority, Stack, Func, Arg, Policy */
+    {"Sensor", pdMS_TO_TICKS(100), pdMS_TO_TICKS(100), 2, MAIN_TASK_STACK_SIZE,
+     vJob_Sensor, NULL, PTL_POLICY_USE_GLOBAL},
+    {"ImgProc", pdMS_TO_TICKS(50), pdMS_TO_TICKS(50), 1, MAIN_TASK_STACK_SIZE,
+     vJob_ImageProc, NULL, PTL_POLICY_KILL},
+    {"Logger", pdMS_TO_TICKS(50), pdMS_TO_TICKS(50), 3, MAIN_TASK_STACK_SIZE,
+     vJob_Logger, NULL, PTL_POLICY_SKIP}};
 
-/* * Job 2: "Image_Proc"
- * Behavior: INTENTIONALLY FAILS. Tries to run for 80ms with a 50ms deadline.
- * Policy:   PTL_POLICY_KILL
- * Goal:     Show the Supervisor terminating a rogue task.
+/**
+ * @brief Global PTL Configuration.
  */
-void Job_ImageProc(void *pvParameters) {
-    (void)pvParameters;
-    
-    UART_printf("[IMG_PROC] Processing heavy frame... (Will Exceed Deadline)\n");
-    
-    /* * Simulating a heavy calculation that hangs or takes too long.
-     * The PTL Supervisor should interrupt this at 50ms (Deadline).
-     */
-    Burn(80); 
-    
-    /* If the system works, this line should NEVER print */
-    UART_printf("[FAIL] ImageProc finished! (Should have been KILLED)\n");
-}
-
-/* * Job 3: "Data_Log"
- * Behavior: Runs late but is allowed to finish.
- * Policy:   PTL_POLICY_SKIP
- * Goal:     Show the SKIP policy (finish late, skip next job to recover).
- */
-void Job_Logger(void *pvParameters) {
-    (void)pvParameters;
-    
-    UART_printf("[LOG] Writing to flash... (Running late)\n");
-    
-    /* Run for 60ms (Deadline is 50ms) */
-    Burn(60); 
-    
-    UART_printf("[LOG] Done (Late but Safe).\n");
-}
-
-/* * --------------------------------------------------------------------------------------
- * SECTION 2: SYSTEM CONFIGURATION
- * --------------------------------------------------------------------------------------
- */
-
-/* * Task Configuration Array 
- * Fields: { Name, Period, Deadline, Priority, Stack, Function, Arg, POLICY }
- */
-static PTL_TaskConfig_t t_config[] = {
-    /* * Task 1: Sensor (Normal)
-     * Period: 100ms, Deadline: 100ms, Priority: 2 (Medium)
-     * Policy: USE_GLOBAL (Inherit from Global Config)
-     */
-    { "Sensor",   pdMS_TO_TICKS(100), pdMS_TO_TICKS(100), 2, 256, Job_Sensor,    NULL, PTL_POLICY_USE_GLOBAL },
-
-    /* * Task 2: ImageProc (Rogue Task)
-     * Period: 200ms, Deadline: 50ms, Priority: 1 (Low)
-     * Policy: KILL (Terminate immediately on deadline miss)
-     */
-    { "ImgProc",  pdMS_TO_TICKS(200), pdMS_TO_TICKS(50),  1, 256, Job_ImageProc, NULL, PTL_POLICY_KILL },
-
-    /* * Task 3: Logger (Late Task)
-     * Period: 200ms, Deadline: 50ms, Priority: 3 (High)
-     * Policy: SKIP (Let it finish, then skip the next release)
-     */
-    { "Logger",   pdMS_TO_TICKS(200), pdMS_TO_TICKS(50),  3, 256, Job_Logger,    NULL, PTL_POLICY_SKIP }
+static const PTL_GlobalConfig_t xGlobalConfig = {
+    PTL_POLICY_CATCH_UP, /* Default Policy */
+    pdTRUE,              /* Tracing Enabled */
+    3                    /* Max Tasks */
 };
 
-/* * Global Configuration 
- * - Default Policy: If a task says USE_GLOBAL, use this (e.g., CATCH_UP).
- * - Tracing: Enable internal logging for debug.
- * - Max Tasks: Must match or exceed the array size (Max 8).
- */
-static PTL_GlobalConfig_t global_config = {
-    .eOverrunPolicy  = PTL_POLICY_CATCH_UP,
-    .xTracingEnabled = pdTRUE,
-    .uxMaxTasks      = 3
-};
+/*-----------------------------------------------------------*/
+/* PUBLIC FUNCTIONS                                           */
+/*-----------------------------------------------------------*/
 
-/* * --------------------------------------------------------------------------------------
- * SECTION 3: MAIN ENTRY POINT
- * --------------------------------------------------------------------------------------
+/**
+ * @brief Main application entry point.
+ *
+ * Initializes hardware, PTL, and starts the scheduler.
+ *
+ * @return 0 (Should never return).
  */
 int main(void) {
-    /* 1. Hardware Init */
-    UART_init();
-    UART_printf("\n\n");
-    UART_printf("========================================\n");
-    UART_printf("   PTL REAL-TIME SCHEDULER DEMO v1.0    \n");
-    UART_printf("========================================\n");
+  /* Initialize Hardware. */
+  UART_init();
+  UART_printf("\n\n");
+  UART_printf("========================================\n");
+  UART_printf("   PTL REAL-TIME SCHEDULER DEMO v1.0    \n");
+  UART_printf("========================================\n");
 
-    /* 2. PTL Initialization (Validates config and creates tasks) */
-    if (PTL_Init(&global_config, t_config, 3) != pdPASS) {
-        UART_printf("[ERROR] PTL Initialization Failed!\n");
-        while(1); /* Halt on error */
+  /* Initialize PTL. */
+  if (PTL_Init(&xGlobalConfig, xTaskConfig, 3) != pdPASS) {
+    UART_printf("[ERROR] PTL Initialization Failed!\n");
+    for (;;) {
+      /* Halt on error. */
     }
+  }
 
-    UART_printf("[INFO] System Initialized. Starting Scheduler...\n");
+  UART_printf("[INFO] System Initialized. Starting Scheduler...\n");
 
-    /* * 3. Start Scheduler
-     * This function creates the Supervisor task and starts the FreeRTOS kernel.
-     * It should never return.
-     */
-    PTL_Start();
+  /* Start Scheduler (Never returns). */
+  PTL_Start();
 
-    /* 4. Safety Trap (Should never be reached) */
-    while(1) {
-        __asm("nop");
-    }
+  /* Should not be reached. */
+  for (;;) {
+    /* Trap. */
+  }
 
-    return 0;
+  return 0;
 }
+/*-----------------------------------------------------------*/
+
+/**
+ * @brief Job 1: Sensor Read
+ *
+ * Simulates a sensor reading task. Runs quickly (10ms) and
+ * completes well within its deadline.
+ *
+ * @param[in] pvParameters Unused.
+ */
+void vJob_Sensor(void *pvParameters) {
+  (void)pvParameters;
+
+  UART_printf("[SENSOR] Reading data... (10ms work)\n");
+  Burn(10);
+  UART_printf("[SENSOR] Done.\n");
+}
+/*-----------------------------------------------------------*/
+
+/**
+ * @brief Job 2: Image Processing
+ *
+ * Simulates a heavy task running for 80ms with a 50ms deadline.
+ * Demonstrates the KILL policy (supervisor terminates it).
+ *
+ * @param[in] pvParameters Unused.
+ */
+void vJob_ImageProc(void *pvParameters) {
+  (void)pvParameters;
+
+  UART_printf("[IMG_PROC] Processing frame... (Will Exceed Deadline)\n");
+
+  /* Simulates work exceeding deadline (50ms). */
+  Burn(80);
+
+  /* This line should never execute if KILL policy works. */
+  UART_printf("[FAIL] ImageProc finished! (Should be KILLED)\n");
+}
+/*-----------------------------------------------------------*/
+
+/**
+ * @brief Job 3: Data Logger
+ *
+ * Simulates a logging task running for 60ms with a 50ms deadline.
+ * Demonstrates the SKIP policy (allowed to finish, next job skipped).
+ *
+ * @param[in] pvParameters Unused.
+ */
+void vJob_Logger(void *pvParameters) {
+  (void)pvParameters;
+
+  UART_printf("[LOG] Writing to flash... (Running late)\n");
+
+  /* Run for 60ms (Deadline is 50ms). */
+  Burn(60);
+
+  UART_printf("[LOG] Done (Late but Safe).\n");
+}
+/*-----------------------------------------------------------*/

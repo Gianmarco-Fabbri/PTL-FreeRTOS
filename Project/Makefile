@@ -152,12 +152,16 @@ gdb_start:
 
 
 
-# EXPLICIT TEST ORDER: Safety -> Policies -> Stress -> Performance
+# EXPLICIT TEST ORDER: Safety -> Policies -> Preemption -> Edge Cases -> Stress -> Performance
 TEST_ORDER  = $(TESTS_FOLDER)/test_init_safety.c
+TEST_ORDER += $(TESTS_FOLDER)/test_safety_limits.c
 TEST_ORDER += $(TESTS_FOLDER)/test_policy_kill_trace.c
 TEST_ORDER += $(TESTS_FOLDER)/test_policy_skip_trace.c
 TEST_ORDER += $(TESTS_FOLDER)/test_policy_catchup_trace.c
-TEST_ORDER += $(TESTS_FOLDER)/test_production_self_check.c
+TEST_ORDER += $(TESTS_FOLDER)/test_preemption.c
+TEST_ORDER += $(TESTS_FOLDER)/test_edge_minimal_gap.c
+TEST_ORDER += $(TESTS_FOLDER)/test_mixed_trace.c
+TEST_ORDER += $(TESTS_FOLDER)/test_production_check.c
 TEST_ORDER += $(TESTS_FOLDER)/test_load_on_trace.c
 
 # Duration to run each test before killing QEMU

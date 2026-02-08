@@ -26,62 +26,39 @@
  */
 
 /**
- * @file test_edge_minimal_gap.c
- * @brief Stress Test: Minimal Workload Gaps.
+ * @file test_init_safety.c
+ * @brief Test for PTL initialization safety.
  *
- * Tests the scheduler's behavior when tasks use almost 100% of their
- * slice (8ms work in 10ms period), checking for jitter-induced misses.
+ * Verifies that PTL_Init() correctly rejects invalid configurations
+ * such as NULL pointers or zero tasks.
  */
 
-#include "burner.h"
 #include "ptl.h"
 #include "ptl_trace.h"
 #include "uart.h"
 
-static void vJob_Tight(void *pvParameters) {
-  (void)pvParameters;
-  Burn(8); /* 8ms work, 2ms slack for 10ms period */
-}
-
-static void vJob_Check(void *pvParameters) {
-  (void)pvParameters;
-  PTL_TraceStats_t s;
-
-  vTaskDelay(pdMS_TO_TICKS(500));
-
-  PTL_GetTraceStatistics(&s);
-
-  UART_printf("\n=== TEST: MINIMAL TIME GAPS ===\n");
-  PTL_PrintStatistics();
-
-  /* Success if no overruns occur despite the tight timing */
-  if ((s.ulOverrunCount == 0) && (s.ulTotalCompletions > 10)) {
-    UART_printf("[PASS] Timing consistency maintained.\n");
-  } else {
-    UART_printf("[FAIL] Jitter caused overruns.\n");
-  }
-
-  for (;;) {
-    /* Trap */
-  }
-}
-
-static PTL_TaskConfig_t xTaskConfig[] = {
-    {"Tight", 10, 10, 2, 512, vJob_Tight, NULL, PTL_POLICY_CATCH_UP},
-    {"REF", 600, 600, 3, 512, vJob_Check, NULL, PTL_POLICY_USE_GLOBAL}};
-
 int main(void) {
-  PTL_GlobalConfig_t xGlobalConfig = {PTL_POLICY_CATCH_UP, pdTRUE, 2};
-
   UART_init();
-  PTL_TraceInit();
+  UART_printf("\n=== TEST: INIT SAFETY CHECKS ===\n");
 
-  if (PTL_Init(&xGlobalConfig, xTaskConfig, 2) == pdPASS) {
-    PTL_Start();
+  /* Test 1: NULL config */
+  if (PTL_Init(NULL, NULL, 0) == pdFAIL) {
+    UART_printf("[PASS] NULL config rejected\n");
+  } else {
+    UART_printf("[FAIL] NULL config accepted\n");
+    return 1;
   }
 
-  for (;;) {
-    /* Trap */
+  /* Test 2: Zero tasks */
+  PTL_GlobalConfig_t xConfig = {PTL_POLICY_SKIP, pdTRUE, 8};
+
+  if (PTL_Init(&xConfig, NULL, 0) == pdFAIL) {
+    UART_printf("[PASS] Zero tasks rejected\n");
+  } else {
+    UART_printf("[FAIL] Zero tasks accepted\n");
+    return 1;
   }
+
+  UART_printf("[PASS] All safety checks passed\n");
   return 0;
 }
